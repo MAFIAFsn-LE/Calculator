@@ -13,7 +13,9 @@ public class Main {
         System.out.println("3. Multiplication (*)");
         System.out.println("4. Division (/)");
         System.out.println("5. Remainder of division (%)");
-        System.out.print("Enter the operation number (1-5): ");
+        System.out.println("6. Square root (√a)");
+        System.out.println("7. Exponentiation(Powers)");
+        System.out.print("Enter the operation number (1-7): ");
 
         int choice = scanner.nextInt();
         double a;
@@ -22,17 +24,17 @@ public class Main {
         switch (choice){
             case 1:
                 System.out.println("Enter 1st number: ");
-                a = scanner.nextInt();
+                a = scanner.nextDouble();
                 System.out.println("Enter 2nd number: ");
-                b = scanner.nextInt();
+                b = scanner.nextDouble();
 
                 System.out.printf("%.0f + %.0f = %.0f", a, b, a + b);
                 break;
             case 2:
                 System.out.println("Enter 1st number: ");
-                a = scanner.nextInt();
+                a = scanner.nextDouble();
                 System.out.println("Enter 2nd number: ");
-                b = scanner.nextInt();
+                b = scanner.nextDouble();
 
                 System.out.printf("%.0f - %.0f = %.0f", a, b, a - b);
                 break;
@@ -50,7 +52,11 @@ public class Main {
                 System.out.println("Enter 2nd number: ");
                 b = scanner.nextDouble();
 
-                System.out.printf("%.1f / %.1f = %.1f", a, b, a / b);
+                if (b == 0){
+                    System.out.println("Error: Division by zero!");
+                } else{
+                    System.out.printf("%.1f / %.1f = %.1f", a, b, a / b);
+                }
                 break;
             case 5:
                 System.out.println("Enter 1st number: ");
@@ -58,8 +64,31 @@ public class Main {
                 System.out.println("Enter 2nd number: ");
                 b = scanner.nextDouble();
 
-                System.out.printf("%.1f %% %.1f = %.1f", a, b, a % b);
+                if(b == 0){
+                    System.out.println("You cannot find a remainder when dividing by zero.");
+                } else {
+                    System.out.printf("%.1f %% %.1f = %.1f", a, b, a % b);
+                }
                 break;
+            case 6:
+                System.out.println("Enter number: ");
+                a = scanner.nextDouble();
+                 if (a < 0){
+                     System.out.println("Error: Cannot calculate square root of a negative number!");
+                 }else {
+                     System.out.printf("√%.1f = %.1f", a, Math.sqrt(a));
+                 }
+                break;
+            case 7:
+                System.out.println("Enter base number: ");
+                a = scanner.nextDouble();
+                System.out.println("Enter exponent number: ");
+                b = scanner.nextDouble();
+
+                System.out.printf("%.1f  to the power of %.1f = %.1f", a, b, Math.pow(a, b));
+                break;
+            default:
+                System.out.println("There is no such operation.");
         }
 
     }
